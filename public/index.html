@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#f7f7f4"><title>PixelMuse — Your creative studio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#20231f;--muted:#858a80;--paper:#f7f7f4;--white:#fff;--line:#e7e8e1;--green:#c6ef76;--green-dark:#42651d;--dark:#1e231d;--soft:#eff2e9;--shadow:0 18px 60px #27301b12}
+*{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font-family:'DM Sans',sans-serif}button,input,select{font:inherit}button{cursor:pointer}.hidden{display:none!important}
+.topbar{height:70px;background:#ffffffd9;backdrop-filter:blur(16px);border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;padding:0 4.2vw;position:sticky;top:0;z-index:10}
+.brand{display:flex;align-items:center;gap:10px;font:800 20px Manrope;letter-spacing:-.8px}.brand-mark{height:32px;width:32px;border-radius:11px;background:var(--green);display:grid;place-items:center;font-size:18px}.topnav{display:flex;gap:28px;color:#73796f;font-size:13px}.topnav a{color:inherit;text-decoration:none}.topright{display:flex;align-items:center;gap:10px}.user-chip{background:var(--soft);border:1px solid var(--line);border-radius:30px;padding:7px 12px;font-size:12px}.btn{border:0;border-radius:10px;padding:11px 16px;font-weight:700;font-size:12px;transition:.18s}.btn:hover{transform:translateY(-1px)}.btn-dark{background:var(--dark);color:#fff}.btn-green{background:var(--green);color:#26351a}.btn-outline{background:white;border:1px solid var(--line);color:var(--ink)}.btn-quiet{background:transparent;color:#687064}
+.hero{max-width:1320px;margin:0 auto;padding:35px 4.2vw 24px;display:flex;align-items:end;justify-content:space-between;gap:24px}.eyebrow{font-size:10px;letter-spacing:1.8px;text-transform:uppercase;color:#71913f;font-weight:700}.hero h1{font:800 clamp(27px,3vw,39px) Manrope;letter-spacing:-1.8px;margin:8px 0 7px}.hero p{margin:0;color:var(--muted);font-size:13px}.hero-note{font-size:11px;color:#7d8478;display:flex;gap:8px;align-items:center;padding-bottom:5px}.online-dot{width:7px;height:7px;border-radius:50%;background:#82bb4b}
+.app{max-width:1500px;margin:auto;padding:0 3vw 35px;display:grid;grid-template-columns:66px minmax(0,1fr) 310px;gap:14px;min-height:calc(100vh - 205px)}
+.rail{background:#fff;border:1px solid var(--line);border-radius:17px;padding:12px 8px;display:flex;flex-direction:column;align-items:center;gap:8px;box-shadow:var(--shadow)}.rail-btn{width:48px;height:49px;border:0;background:transparent;border-radius:12px;color:#777e72;font-size:18px;display:grid;place-items:center;position:relative}.rail-btn small{font-size:9px;display:block;margin-top:-5px}.rail-btn.active,.rail-btn:hover{background:#eff5e5;color:#42651d}.rail-sep{height:1px;background:var(--line);width:30px;margin:4px 0}
+.workspace{background:#fff;border:1px solid var(--line);border-radius:18px;box-shadow:var(--shadow);overflow:hidden;display:flex;flex-direction:column;min-width:0}.worktop{height:56px;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;padding:0 16px;gap:12px}.file-name{font-size:12px;font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.worktop-left,.worktop-right{display:flex;align-items:center;gap:8px;min-width:0}.subtle{font-size:10px;color:#969b91}.smallbtn{height:31px;min-width:32px;border:1px solid var(--line);background:#fff;border-radius:8px;color:#5e6559;font-size:12px}.smallbtn:hover{background:var(--soft)}.worktop .btn{padding:9px 13px}
+.canvas-area{position:relative;flex:1;min-height:470px;display:grid;place-items:center;overflow:hidden;background-color:#f0f1ec;background-image:radial-gradient(#daddd3 1px,transparent 1px);background-size:18px 18px;padding:25px}.canvas-area canvas{max-width:100%;max-height:100%;object-fit:contain;box-shadow:0 12px 35px #19201325;display:none;background:white}.welcome{width:min(520px,95%);background:#ffffffed;border:1px dashed #cbd0c2;border-radius:20px;padding:42px 24px;text-align:center;box-shadow:0 12px 45px #303a1b0b}.upload-art{height:60px;width:60px;background:#eff6e4;border-radius:19px;display:grid;place-items:center;font-size:25px;margin:0 auto 16px;color:#5b8030}.welcome h2{font:800 19px Manrope;margin:0 0 8px}.welcome p{color:#8b9186;font-size:12px;line-height:1.6;margin:0 0 18px}.filetypes{font-size:10px;color:#a1a69d;margin-top:12px}.canvas-footer{height:39px;border-top:1px solid var(--line);display:flex;justify-content:space-between;align-items:center;padding:0 15px;color:#8c9287;font-size:10px}
+.panel{background:white;border:1px solid var(--line);border-radius:18px;box-shadow:var(--shadow);padding:17px;display:flex;flex-direction:column;min-width:0}.panel-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:16px}.panel-head h2{font:800 14px Manrope;margin:0}.reset{border:0;background:none;color:#6b8a40;font-size:10px;font-weight:700}.tool-tabs{display:flex;gap:4px;background:#f2f3ef;padding:4px;border-radius:10px;margin-bottom:17px}.tool-tab{border:0;background:transparent;border-radius:7px;padding:8px 4px;flex:1;font-size:10px;color:#858b80}.tool-tab.active{background:white;color:#30382a;box-shadow:0 1px 4px #0000000d;font-weight:700}.tool-panel{display:none;overflow:auto}.tool-panel.active{display:block}.section-label{font-size:9px;letter-spacing:1.4px;text-transform:uppercase;font-weight:700;color:#92988d;margin:0 0 12px}
+.filter-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}.filter{border:1px solid var(--line);background:#fff;border-radius:10px;padding:6px 5px 8px;font-size:9px;color:#62695e}.filter.selected{border-color:#a8cd69;background:#f7fbea;color:#3d5b20}.filter-thumb{height:48px;border-radius:6px;margin-bottom:6px;background:linear-gradient(135deg,#d7b49b,#b96b75 48%,#38546b)}.slider{margin-bottom:16px}.slider-head{display:flex;justify-content:space-between;font-size:11px;color:#4e554a;margin-bottom:8px}.slider-head output{color:#969c91;font-variant-numeric:tabular-nums}input[type=range]{width:100%;accent-color:#8bb84e;height:4px}.slider-row{display:grid;grid-template-columns:1fr 1fr;gap:10px}.control-btn{background:#fafbf8;border:1px solid var(--line);border-radius:10px;padding:11px 6px;font-size:10px;color:#4d5547}.control-btn b{font-size:17px;display:block;margin-bottom:5px;font-weight:500}.control-btn:hover{border-color:#b7d58c;background:#f7fbea}.text-input{width:100%;border:1px solid var(--line);background:#fbfcf9;border-radius:9px;padding:10px;font-size:11px;outline:none}.text-input:focus{border-color:#a5c878}.field-label{font-size:10px;color:#737b6d;display:block;margin:12px 0 6px}.help{font-size:10px;color:#92988d;line-height:1.5}.panel-bottom{margin-top:auto;padding-top:17px}.download-btn{width:100%;padding:13px}.account-modal{position:fixed;inset:0;background:#18201480;backdrop-filter:blur(7px);z-index:30;display:grid;place-items:center;padding:18px}.auth-card{width:min(420px,100%);background:white;border-radius:22px;padding:28px;box-shadow:0 25px 90px #0003;position:relative}.auth-close{position:absolute;right:18px;top:17px;border:0;background:#f3f4ef;border-radius:50%;height:30px;width:30px}.auth-card .brand{margin-bottom:22px}.auth-card h2{font:800 24px Manrope;letter-spacing:-1px;margin:0 0 7px}.auth-card>p{font-size:12px;color:#8a9085;margin:0 0 22px}.auth-field{margin:13px 0}.auth-field label{display:block;font-size:11px;font-weight:700;margin-bottom:7px}.auth-field input{width:100%;padding:12px;border:1px solid var(--line);border-radius:10px;outline:none}.auth-field input:focus{border-color:#9ec66b}.auth-submit{width:100%;margin-top:10px;padding:13px}.auth-switch{text-align:center;font-size:11px;color:#858b80;margin:17px 0 0}.link-btn{border:0;background:none;color:#5f8730;font-weight:700}.auth-error{font-size:11px;color:#b34343;background:#fff1f0;border-radius:8px;padding:9px;margin:12px 0;display:none}.toast{position:fixed;bottom:22px;left:50%;transform:translateX(-50%);background:#20271d;color:white;padding:11px 16px;border-radius:10px;font-size:12px;box-shadow:var(--shadow);z-index:50}
+@media(max-width:1050px){.app{grid-template-columns:58px minmax(0,1fr)}.panel{grid-column:2;min-height:350px}.tool-panel.active{max-height:350px}.app{min-height:auto}.canvas-area{min-height:440px}}
+@media(max-width:650px){.topbar{padding:0 16px}.topnav{display:none}.hero{padding:25px 17px 18px;align-items:start;flex-direction:column;gap:12px}.app{padding:0 10px 24px;grid-template-columns:48px minmax(0,1fr);gap:8px}.rail{padding:8px 3px}.rail-btn{width:40px;height:43px}.workspace{min-height:460px}.worktop{padding:0 9px}.worktop .subtle{display:none}.worktop .btn{padding:8px}.canvas-area{min-height:350px;padding:10px}.panel{grid-column:1/-1}.panel-bottom{margin-top:15px}.user-chip{display:none}}
+</style>
+</head>
+<body>
+<header class="topbar">
+ <div class="brand"><span class="brand-mark">✳</span>pixelmuse</div>
+ <nav class="topnav"><a href="#">Studio</a><a href="#editor">Editor</a><a href="#features">Features</a></nav>
+ <div class="topright"><span class="user-chip" id="userChip">Guest workspace</span><button class="btn btn-outline" id="authButton">Sign in</button><button class="btn btn-dark hidden" id="logoutButton">Sign out</button></div>
+</header>
+<section class="hero"><div><div class="eyebrow">A little space for big ideas</div><h1>Make something <span style="color:#739a3d">beautiful.</span></h1><p>A thoughtful photo editor with the tools you need, and none of the clutter.</p></div><div class="hero-note"><span class="online-dot"></span> Your edits happen on this device</div></section>
+<main class="app" id="editor">
+ <aside class="rail">
+  <button class="rail-btn active" data-tool="filters" title="Filters">◈<small>Looks</small></button>
+  <button class="rail-btn" data-tool="adjust" title="Adjust">☼<small>Adjust</small></button>
+  <button class="rail-btn" data-tool="crop" title="Crop & transform">▧<small>Crop</small></button>
+  <button class="rail-btn" data-tool="text" title="Text">T<small>Text</small></button>
+  <button class="rail-btn" data-tool="draw" title="Draw">✎<small>Draw</small></button>
+  <div class="rail-sep"></div>
+  <button class="rail-btn" id="undo" title="Undo">↶<small>Undo</small></button>
+  <button class="rail-btn" id="redo" title="Redo">↷<small>Redo</small></button>
+ </aside>
+ <section class="workspace">
+  <div class="worktop"><div class="worktop-left"><span class="file-name" id="fileName">Untitled project</span><span class="subtle" id="fileInfo">· No image yet</span></div><div class="worktop-right"><button class="smallbtn" id="zoomOut">−</button><span class="subtle" id="zoomLabel">100%</span><button class="smallbtn" id="zoomIn">+</button><button class="btn btn-green" id="exportTop">Export ↗</button></div></div>
+  <div class="canvas-area" id="dropZone">
+   <div class="welcome" id="welcome"><div class="upload-art">↑</div><h2>Start with a photo</h2><p>Bring in a favourite photo and make it yours.<br>We support JPG, PNG and WEBP images.</p><button class="btn btn-dark" id="browse">Choose image</button><div class="filetypes">DRAG & DROP ALSO WORKS · UP TO 20 MB</div></div>
+   <canvas id="canvas"></canvas>
+  </div>
+  <div class="canvas-footer"><span id="canvasStatus">Ready for your next idea</span><span>PIXELMUSE / STUDIO</span></div>
+ </section>
+ <aside class="panel">
+  <div class="panel-head"><h2 id="panelTitle">Looks & filters</h2><button class="reset" id="resetAll">Reset all ↺</button></div>
+  <div class="tool-tabs"><button class="tool-tab active" data-tool="filters">Looks</button><button class="tool-tab" data-tool="adjust">Tune</button><button class="tool-tab" data-tool="crop">Frame</button><button class="tool-tab" data-tool="text">Type</button><button class="tool-tab" data-tool="draw">Draw</button></div>
+  <div class="tool-panel active" id="filters">
+   <div class="section-label">Find your atmosphere</div><div class="filter-grid">
+    <button class="filter selected" data-filter="original"><div class="filter-thumb"></div>Original</button>
+    <button class="filter" data-filter="vivid"><div class="filter-thumb" style="filter:saturate(1.7) contrast(1.1)"></div>Vivid</button>
+    <button class="filter" data-filter="mono"><div class="filter-thumb" style="filter:grayscale(1)"></div>Mono</button>
+    <button class="filter" data-filter="warm"><div class="filter-thumb" style="filter:sepia(.4) saturate(1.2)"></div>Golden</button>
+    <button class="filter" data-filter="cool"><div class="filter-thumb" style="filter:hue-rotate(20deg)"></div>Cool</button>
+    <button class="filter" data-filter="matte"><div class="filter-thumb" style="filter:contrast(.8) brightness(1.1)"></div>Matte</button>
+    <button class="filter" data-filter="cinema"><div class="filter-thumb" style="filter:contrast(1.4) saturate(.75)"></div>Cinema</button>
+    <button class="filter" data-filter="vintage"><div class="filter-thumb" style="filter:sepia(.6) contrast(.9)"></div>Vintage</button>
+    <button class="filter" data-filter="soft"><div class="filter-thumb" style="filter:brightness(1.1) saturate(.75)"></div>Soft</button>
+   </div>
+  </div>
+  <div class="tool-panel" id="adjust">
+   <div class="section-label">Light & colour</div>
+   <div class="slider" data-key="brightness"><div class="slider-head">Brightness <output>100%</output></div><input type="range" min="0" max="200" value="100"></div>
+   <div class="slider" data-key="contrast"><div class="slider-head">Contrast <output>100%</output></div><input type="range" min="0" max="200" value="100"></div>
+   <div class="slider" data-key="saturation"><div class="slider-head">Saturation <output>100%</output></div><input type="range" min="0" max="200" value="100"></div>
+   <div class="slider" data-key="exposure"><div class="slider-head">Exposure <output>0</output></div><input type="range" min="-100" max="100" value="0"></div>
+   <div class="slider" data-key="warmth"><div class="slider-head">Warmth <output>0</output></div><input type="range" min="-100" max="100" value="0"></div>
+   <div class="slider" data-key="blur"><div class="slider-head">Blur <output>0px</output></div><input type="range" min="0" max="12" value="0"></div>
+   <div class="slider" data-key="grayscale"><div class="slider-head">Black & white <output>0%</output></div><input type="range" min="0" max="100" value="0"></div>
+  </div>
+  <div class="tool-panel" id="crop">
+   <div class="section-label">Rotate & flip</div><div class="slider-row">
+    <button class="control-btn" id="rotateL"><b>↶</b>Rotate left</button><button class="control-btn" id="rotateR"><b>↷</b>Rotate right</button>
+    <button class="control-btn" id="flipH"><b>⇋</b>Flip horizontal</button><button class="control-btn" id="flipV"><b>⇅</b>Flip vertical</button>
+   </div>
+   <label class="field-label" for="aspect">Aspect ratio</label><select class="text-input" id="aspect"><option value="free">Original / free</option><option value="1:1">Square 1:1</option><option value="4:5">Portrait 4:5</option><option value="3:2">Landscape 3:2</option><option value="16:9">Wide 16:9</option></select>
+   <button class="btn btn-outline" id="applyCrop" style="width:100%;margin-top:12px">Apply centred crop</button>
+   <p class="help">Choose a ratio, then apply a centred crop to your photo.</p>
+  </div>
+  <div class="tool-panel" id="text">
+   <div class="section-label">Add a little message</div><label class="field-label">Your text</label><input class="text-input" id="overlayText" placeholder="Write something lovely…">
+   <label class="field-label">Font size</label><input type="range" id="textSize" min="14" max="120" value="42" style="width:100%">
+   <label class="field-label">Text colour</label><input type="color" id="textColor" value="#ffffff" style="width:100%;height:38px;border:1px solid var(--line);border-radius:8px;background:white;padding:3px">
+   <button class="btn btn-dark" id="addText" style="width:100%;margin-top:14px">Add text to image</button>
+   <p class="help">Text is placed near the centre of your image. Add multiple text layers if you like.</p>
+  </div>
+  <div class="tool-panel" id="draw">
+   <div class="section-label">Draw on your photo</div><label class="field-label">Brush colour</label><input type="color" id="brushColor" value="#c6ef76" style="width:100%;height:38px;border:1px solid var(--line);border-radius:8px;background:white;padding:3px">
+   <label class="field-label">Brush size <output id="brushSizeVal">6 px</output></label><input type="range" id="brushSize" min="1" max="40" value="6" style="width:100%">
+   <button class="btn btn-outline" id="clearDraw" style="width:100%;margin-top:14px">Clear drawing layer</button>
+   <p class="help">Select the brush, then draw directly over the photo.</p>
+  </div>
+  <div class="panel-bottom"><button class="btn btn-green download-btn" id="download">Download your photo ↓</button><p class="help" style="text-align:center;margin:10px 0 0">Your original stays untouched. Export a new copy whenever you're ready.</p></div>
+ </aside>
+</main>
+<div class="account-modal hidden" id="authModal"><div class="auth-card">
+ <button class="auth-close" id="closeAuth">×</button><div class="brand"><span class="brand-mark">✳</span>pixelmuse</div>
+ <h2 id="authTitle">Welcome back.</h2><p id="authSubtitle">Sign in to your creative space.</p>
+ <form id="authForm"><div class="auth-field hidden" id="nameField"><label for="authName">Your name</label><input id="authName" autocomplete="name" placeholder="How should we call you?"></div>
+ <div class="auth-field"><label for="authEmail">Email address</label><input id="authEmail" type="email" autocomplete="email" required placeholder="you@example.com"></div>
+ <div class="auth-field"><label for="authPassword">Password</label><input id="authPassword" type="password" autocomplete="current-password" required placeholder="At least 10 characters"></div>
+ <div class="auth-error" id="authError"></div><button class="btn btn-dark auth-submit" id="authSubmit" type="submit">Sign in</button></form>
+ <div class="auth-switch"><span id="switchText">New to PixelMuse?</span> <button class="link-btn" id="switchAuth">Create an account</button></div>
+ </div></div>
+<div class="toast hidden" id="toast"></div><input type="file" id="fileInput" accept="image/png,image/jpeg,image/webp" hidden>
+<script>
+const $=s=>document.querySelector(s), canvas=$('#canvas'),ctx=canvas.getContext('2d');
+let image=null, fileLabel='', zoom=1, rotation=0, flipX=1, flipY=1, activeTool='filters', authMode='login';
+let settings={brightness:100,contrast:100,saturation:100,exposure:0,warmth:0,blur:0,grayscale:0};
+let preset='original', textLayers=[], strokes=[], drawing=false, history=[], historyIndex=-1, baseWidth=0,baseHeight=0;
+const presets={original:'',vivid:'saturate(1.55) contrast(1.08)',mono:'grayscale(1)',warm:'sepia(.28) saturate(1.15)',cool:'hue-rotate(17deg) saturate(.9)',matte:'contrast(.84) brightness(1.08) saturate(.85)',cinema:'contrast(1.3) saturate(.78)',vintage:'sepia(.48) contrast(.92)',soft:'brightness(1.08) saturate(.78)'};
+function toast(msg){const t=$('#toast');t.textContent=msg;t.classList.remove('hidden');clearTimeout(toast.timer);toast.timer=setTimeout(()=>t.classList.add('hidden'),2600)}
+function showAuth(mode){authMode=mode;$('#authTitle').textContent=mode==='login'?'Welcome back.':'Make room for creativity.';$('#authSubtitle').textContent=mode==='login'?'Sign in to your creative space.':'Create your free PixelMuse account.';$('#nameField').classList.toggle('hidden',mode!=='signup');$('#authPassword').autocomplete=mode==='login'?'current-password':'new-password';$('#authPassword').placeholder=mode==='login'?'Your password':'At least 10 characters';$('#authSubmit').textContent=mode==='login'?'Sign in':'Create account';$('#switchText').textContent=mode==='login'?'New to PixelMuse?':'Already have an account?';$('#switchAuth').textContent=mode==='login'?'Create an account':'Sign in';$('#authError').style.display='none';$('#authModal').classList.remove('hidden')}
+function closeAuth(){$('#authModal').classList.add('hidden')}
+async function api(url,body){const r=await fetch(url,{method:'POST',headers:{'Content-Type':'application/json'},credentials:'same-origin',body:JSON.stringify(body)});const data=await r.json().catch(()=>({error:'Something went wrong.'}));if(!r.ok)throw new Error(data.error||'Request failed');return data}
+function setUser(user){$('#userChip').textContent=user?`Hi, ${user.name.split(' ')[0]}`:'Guest workspace';$('#authButton').classList.toggle('hidden',!!user);$('#logoutButton').classList.toggle('hidden',!user)}
+async function checkSession(){try{const r=await fetch('/api/me',{credentials:'same-origin'});const d=await r.json();setUser(d.user)}catch{setUser(null)}}
+$('#authButton').onclick=()=>showAuth('login');$('#closeAuth').onclick=closeAuth;$('#switchAuth').onclick=()=>showAuth(authMode==='login'?'signup':'login');
+$('#authForm').onsubmit=async e=>{e.preventDefault();const err=$('#authError'),btn=$('#authSubmit');err.style.display='none';btn.disabled=true;btn.textContent='Please wait…';try{const body={email:$('#authEmail').value,password:$('#authPassword').value};if(authMode==='signup')body.name=$('#authName').value;const d=await api('/api/'+(authMode==='login'?'login':'signup'),body);setUser(d.user);closeAuth();$('#authForm').reset();toast(authMode==='login'?'Welcome back!':'Your account is ready.')}catch(ex){err.textContent=ex.message;err.style.display='block'}finally{btn.disabled=false;btn.textContent=authMode==='login'?'Sign in':'Create account'}};
+$('#logoutButton').onclick=async()=>{try{await api('/api/logout',{});setUser(null);toast('You are signed out.')}catch(e){toast(e.message)}};
+function switchTool(name){activeTool=name;document.querySelectorAll('[data-tool]').forEach(b=>b.classList.toggle('active',b.dataset.tool===name));document.querySelectorAll('.tool-panel').forEach(p=>p.classList.toggle('active',p.id===name));$('#panelTitle').textContent=({filters:'Looks & filters',adjust:'Light & colour',crop:'Crop & transform',text:'Add typography',draw:'Drawing tools'})[name]}
+document.querySelectorAll('.rail-btn[data-tool],.tool-tab').forEach(b=>b.onclick=()=>switchTool(b.dataset.tool));
+function snapshot(){return JSON.stringify({settings,preset,rotation,flipX,flipY,textLayers,strokes})}
+function saveHistory(){const s=snapshot();if(history[historyIndex]===s)return;history=history.slice(0,historyIndex+1);history.push(s);if(history.length>40)history.shift();historyIndex=history.length-1}
+function restore(s){const d=JSON.parse(s);settings=d.settings;preset=d.preset;rotation=d.rotation;flipX=d.flipX;flipY=d.flipY;textLayers=d.textLayers;strokes=d.strokes;Object.entries(settings).forEach(([k,v])=>{const el=document.querySelector(`[data-key="${k}"] input`);if(el){el.value=v;el.parentElement.querySelector('output').textContent=v+(k==='brightness'||k==='contrast'||k==='saturation'||k==='grayscale'?'%':k==='blur'?'px':'')}});render()}
+function render(){if(!image)return;let w=image.naturalWidth,h=image.naturalHeight;const swap=Math.abs(rotation)%180===90;canvas.width=swap?h:w;canvas.height=swap?w:h;ctx.clearRect(0,0,canvas.width,canvas.height);ctx.save();ctx.translate(canvas.width/2,canvas.height/2);ctx.rotate(rotation*Math.PI/180);ctx.scale(flipX,flipY);
+const bright=settings.brightness*Math.pow(2,settings.exposure/100);
+ctx.filter=`${presets[preset]} brightness(${bright}%) contrast(${settings.contrast}%) saturate(${settings.saturation}%) grayscale(${settings.grayscale}%) blur(${settings.blur}px)`;
+ctx.drawImage(image,-w/2,-h/2,w,h);ctx.restore();ctx.filter='none';
+if(settings.warmth!==0){ctx.save();ctx.globalAlpha=Math.abs(settings.warmth)/500;ctx.fillStyle=settings.warmth>0?'#ff9d4d':'#5a9ee8';ctx.fillRect(0,0,canvas.width,canvas.height);ctx.restore()}
+textLayers.forEach(t=>{ctx.save();ctx.font=`700 ${t.size}px Manrope, sans-serif`;ctx.textAlign='center';ctx.textBaseline='middle';ctx.shadowColor='#0008';ctx.shadowBlur=5;ctx.fillStyle=t.color;ctx.fillText(t.text,canvas.width/2,canvas.height/2+t.offsetY);ctx.restore()});
+strokes.forEach(s=>{if(s.points.length<2)return;ctx.save();ctx.strokeStyle=s.color;ctx.lineWidth=s.size;ctx.lineCap='round';ctx.lineJoin='round';ctx.beginPath();ctx.moveTo(s.points[0].x,s.points[0].y);s.points.slice(1).forEach(p=>ctx.lineTo(p.x,p.y));ctx.stroke();ctx.restore()});
+canvas.style.display='block';$('#welcome').classList.add('hidden');$('#fileInfo').textContent=`· ${canvas.width} × ${canvas.height}`;$('#canvasStatus').textContent='Looking good. Keep creating.';canvas.style.transform=`scale(${zoom})`;$('#zoomLabel').textContent=Math.round(zoom*100)+'%'}
+function loadImage(file){if(!file||!/^image\/(jpeg|png|webp)$/.test(file.type)){toast('Please choose a JPG, PNG or WEBP image.');return}if(file.size>20*1024*1024){toast('This image is larger than 20 MB.');return}const url=URL.createObjectURL(file),im=new Image();im.onload=()=>{image=im;fileLabel=file.name;$('#fileName').textContent=file.name;settings={brightness:100,contrast:100,saturation:100,exposure:0,warmth:0,blur:0,grayscale:0};preset='original';rotation=0;flipX=flipY=1;textLayers=[];strokes=[];document.querySelectorAll('[data-key]').forEach(el=>{const k=el.dataset.key,inp=el.querySelector('input');inp.value=settings[k];el.querySelector('output').textContent=settings[k]+(k==='brightness'||k==='contrast'||k==='saturation'||k==='grayscale'?'%':k==='blur'?'px':'')});document.querySelectorAll('.filter').forEach(b=>b.classList.toggle('selected',b.dataset.filter==='original'));history=[];historyIndex=-1;saveHistory();render();URL.revokeObjectURL(url);toast('Photo added to your canvas.')} ;im.onerror=()=>toast('Could not open this image.');im.src=url}
+$('#browse').onclick=()=>$('#fileInput').click();$('#welcome').onclick=e=>{if(e.target.id!=='browse')$('#fileInput').click()};$('#fileInput').onchange=e=>loadImage(e.target.files[0]);
+const dz=$('#dropZone');['dragenter','dragover'].forEach(ev=>dz.addEventListener(ev,e=>{e.preventDefault();$('#welcome').style.borderColor='#88ad4c'}));['dragleave','drop'].forEach(ev=>dz.addEventListener(ev,e=>{e.preventDefault();$('#welcome').style.borderColor=''}));dz.addEventListener('drop',e=>loadImage(e.dataTransfer.files[0]));
+document.querySelectorAll('.filter').forEach(b=>b.onclick=()=>{if(!image)return toast('Add a photo first.');preset=b.dataset.filter;document.querySelectorAll('.filter').forEach(x=>x.classList.toggle('selected',x===b));render();saveHistory()});
+document.querySelectorAll('[data-key]').forEach(el=>{const key=el.dataset.key,input=el.querySelector('input'),out=el.querySelector('output');input.oninput=()=>{settings[key]=+input.value;out.textContent=input.value+(key==='brightness'||key==='contrast'||key==='saturation'||key==='grayscale'?'%':key==='blur'?'px':'');render()};input.onchange=saveHistory});
+function transform(){render();saveHistory()}$('#rotateL').onclick=()=>{rotation-=90;transform()};$('#rotateR').onclick=()=>{rotation+=90;transform()};$('#flipH').onclick=()=>{flipX*=-1;transform()};$('#flipV').onclick=()=>{flipY*=-1;transform()};
+$('#applyCrop').onclick=()=>{if(!image)return toast('Add a photo first.');const ratio=$('#aspect').value;if(ratio==='free')return toast('Choose a crop ratio first.');const [rw,rh]=ratio.split(':').map(Number);let w=canvas.width,h=canvas.height;if(w/h>rw/rh)w=h*rw/rh;else h=w*rh/rw;const c=document.createElement('canvas');c.width=Math.round(w);c.height=Math.round(h);c.getContext('2d').drawImage(canvas,(canvas.width-w)/2,(canvas.height-h)/2,w,h,0,0,w,h);const im=new Image();im.onload=()=>{image=im;rotation=0;flipX=flipY=1;settings={...settings};render();saveHistory();toast('Centred crop applied.')};im.src=c.toDataURL('image/png')};
+$('#addText').onclick=()=>{if(!image)return toast('Add a photo first.');const text=$('#overlayText').value.trim();if(!text)return toast('Write a little message first.');textLayers.push({text,size:+$('#textSize').value,color:$('#textColor').value,offsetY:(textLayers.length-(0))*48});render();saveHistory();toast('Text added.')};
+$('#brushSize').oninput=e=>$('#brushSizeVal').textContent=e.target.value+' px';
+function canvasPoint(e){const r=canvas.getBoundingClientRect();return{x:(e.clientX-r.left)*(canvas.width/r.width),y:(e.clientY-r.top)*(canvas.height/r.height)}}
+canvas.addEventListener('pointerdown',e=>{if(activeTool!=='draw'||!image)return;drawing=true;canvas.setPointerCapture(e.pointerId);const p=canvasPoint(e);strokes.push({color:$('#brushColor').value,size:+$('#brushSize').value,points:[p]});render()});
+canvas.addEventListener('pointermove',e=>{if(!drawing)return;strokes[strokes.length-1].points.push(canvasPoint(e));render()});
+function stopDraw(){if(drawing){drawing=false;saveHistory()}}canvas.addEventListener('pointerup',stopDraw);canvas.addEventListener('pointercancel',stopDraw);
+$('#clearDraw').onclick=()=>{strokes=[];render();saveHistory()};$('#undo').onclick=()=>{if(historyIndex>0){historyIndex--;restore(history[historyIndex])}else toast('Nothing to undo.')};$('#redo').onclick=()=>{if(historyIndex<history.length-1){historyIndex++;restore(history[historyIndex])}else toast('Nothing to redo.')};
+$('#resetAll').onclick=()=>{if(!image)return;settings={brightness:100,contrast:100,saturation:100,exposure:0,warmth:0,blur:0,grayscale:0};preset='original';rotation=0;flipX=flipY=1;textLayers=[];strokes=[];document.querySelectorAll('[data-key]').forEach(el=>{const k=el.dataset.key;el.querySelector('input').value=settings[k];el.querySelector('output').textContent=settings[k]+(k==='brightness'||k==='contrast'||k==='saturation'||k==='grayscale'?'%':k==='blur'?'px':'')});document.querySelectorAll('.filter').forEach(b=>b.classList.toggle('selected',b.dataset.filter==='original'));render();saveHistory();toast('All edits reset.')};
+$('#zoomIn').onclick=()=>{zoom=Math.min(2.5,zoom+.1);render()};$('#zoomOut').onclick=()=>{zoom=Math.max(.5,zoom-.1);render()};
+function exportImage(){if(!image)return toast('Choose a photo before exporting.');const a=document.createElement('a');a.download='pixelmuse-'+Date.now()+'.png';a.href=canvas.toDataURL('image/png');a.click();toast('Your edited photo is downloading.')}
+$('#download').onclick=exportImage;$('#exportTop').onclick=exportImage;
+checkSession();
+</script>
+</body></html>
